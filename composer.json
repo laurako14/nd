@@ -1,0 +1,16 @@
+{
+    "name": "user/nd",
+    "authors": [
+        {
+            "name": "LauraKo",
+            "email": "kovarskyte@yahoo.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Miskas\\Didelis\\": "/",
+            "Miskas\\Mazas": "/"
+        }
+    }
+}
