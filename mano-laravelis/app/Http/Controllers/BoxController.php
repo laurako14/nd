@@ -14,7 +14,11 @@ class BoxController extends Controller
      */
     public function index()
     {
-        //
+        $boxes = Box::all();
+
+        $boxes = $boxes->sortByDesc('bananai');
+
+        return view('box.index', ['boxes' => $boxes]);
     }
 
     /**
@@ -24,7 +28,7 @@ class BoxController extends Controller
      */
     public function create()
     {
-        //
+        return view('box.create');
     }
 
     /**
@@ -35,7 +39,10 @@ class BoxController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $box = new Box;
+        $box->bananai = $request->banana_in;
+        $box->save();
+        return redirect()->route('box.index');
     }
 
     /**
@@ -57,7 +64,7 @@ class BoxController extends Controller
      */
     public function edit(Box $box)
     {
-        //
+        return view('box.edit', ['box' => $box]);
     }
 
     /**
@@ -69,7 +76,9 @@ class BoxController extends Controller
      */
     public function update(Request $request, Box $box)
     {
-        //
+        $box->bananai = $request->banana_in;
+        $box->save();
+        return redirect()->route('box.index');
     }
 
     /**
@@ -80,6 +89,7 @@ class BoxController extends Controller
      */
     public function destroy(Box $box)
     {
-        //
+        $box->delete();
+        return redirect()->route('box.index');
     }
 }
